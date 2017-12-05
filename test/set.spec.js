@@ -1,10 +1,10 @@
 var expect = require('chai').expect,
-    di = require('../../di');
+    Set = require('../lib/set');
 
 describe('set tests', () => {
 
-    let s1 = di.getSet(),
-        s2 = di.getSet();
+    let s1 = new Set(),
+        s2 = new Set();
 
     describe('.add(el)', () => {
         it('should add elements to the set', function() {
