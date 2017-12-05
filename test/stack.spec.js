@@ -1,9 +1,9 @@
 let expect = require('chai').expect,
-    di = require('../../di');
+    Stack = require('../lib/stack');
 
 describe('stack tests', () => {
 
-    let stack = di.getStack();
+    let stack = new Stack();
 
     describe('.push(el)', () => {
         it('should push 3 elements to the stack', () => {
