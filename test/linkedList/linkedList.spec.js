@@ -46,7 +46,7 @@ describe('linkedList tests', function() {
         });
     });
 
-    describe('.traverse()', () => {
+    describe('.traverse(cb)', () => {
         it('should traverse the linked list', () => {
             let values = [];
             linkedList.traverse((value) => {
@@ -60,7 +60,7 @@ describe('linkedList tests', function() {
         });
     });
 
-    describe('.find()', () => {
+    describe('.find(value)', () => {
         it('should find a nodes', () => {
             let n = linkedList.find('test 5');
             expect(n).to.be.instanceof(LinkedListNode);
@@ -72,5 +72,29 @@ describe('linkedList tests', function() {
             expect(linkedList.find('not found')).to.equal(null);
         });
     });
-    
+
+    describe('.removeFirst()', () => {
+        it('should remove the first node', () => {
+            linkedList.removeFirst();
+            expect(linkedList.getLength()).to.equal(7);
+            expect(linkedList.getHead().getValue()).to.equal('test 2')
+        });
+    });
+
+    describe('.removeLast()', () => {
+        it('should remove the last node', () => {
+            linkedList.removeLast();
+            expect(linkedList.getLength()).to.equal(6);
+            expect(linkedList.find('test 4')).to.equal(null);
+        });
+    });
+
+    describe('.remove(value)', () => {
+        it('should remove a node', () => {
+            linkedList.remove('test 5');
+            expect(linkedList.getLength()).to.equal(5);
+            expect(linkedList.find('test 5')).to.equal(null);
+        });
+    });
+
 });
